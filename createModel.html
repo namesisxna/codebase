@@ -1,0 +1,73 @@
+<html lang="en" ng-app="LoginApp">
+  <head>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/>
+	<style>
+	.page-login {
+  md-card {
+    padding: 0!important;
+    //background-image: url('./../img/loginTitleBG.png');
+    md-card-title {
+      background-color: dodgerblue;
+    }
+  }
+}
+
+	</style>
+  </head>
+  <body>
+    <md-content class="page-login" ng-app="LoginApp" ng-controller="Ctrl" layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak">
+      <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2><span>Login Form</span></h2>
+          </div>
+        </md-toolbar>
+        <md-card-content>
+          <form name="Form">
+            <md-input-container class="md-block">
+              <label>Login</label>
+              <input type="text" name="email" ng-model="vm.formData.email" placeholder="login" required=""/>
+              <div ng-messages="Form.email.$error" role="alert" multiple="">
+                <div class="my-message" ng-message="required">You must supply a email.</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Password</label>
+              <input type="password" name="password" ng-model="vm.formData.password" placeholder="password" required="" md-maxlength="16"/>
+              <div ng-messages="Form.password.$error" role="alert" multiple="">
+                <div class="my-message" ng-message="required">You must supply a password.</div>
+                <div class="my-message" ng-message="md-maxlength">Too long.</div>
+              </div>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-disabled="!Form.$valid" ng-click="vm.submit()">&nbsp Login &nbsp</md-button>
+          </form>
+        </md-card-content>
+      </md-card>
+    </md-content>
+    <!-- Angular Material Dependencies-->
+	
+	
+  </body>
+  
+</html>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-aria.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+<script>
+
+var app = angular.module('LoginApp',['ngMaterial','ngAnimate','ngAria','ngMessages'])
+.controller('Ctrl', function($scope){
+  $scope.vm = {
+      formData: {
+        email: '123',
+        password: '321'
+      }
+  };
+  
+});
+
+</script>

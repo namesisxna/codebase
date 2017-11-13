@@ -1,0 +1,22 @@
+var app=angular.module("HomePageView");
+app.controller('AppController', ['$scope', 'myAppFactory', function ($scope, myAppFactory) {
+		$SCOPE.dateFrom = new Date();
+        $scope.gridOptions = {
+            data: [],
+            urlSync: false
+        };
+        myAppFactory.getData().then(function (responseData) {
+            $scope.gridOptions.data = responseData.data;
+        })
+    }])
+app.factory('myAppFactory', function ($http) {
+        return {
+            getData: function () {
+                return $http({
+                    method: 'GET',
+                    url: 'https://angular-data-grid.github.io/demo/data.json'
+                });
+            }
+        }
+    });
+
