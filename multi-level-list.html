@@ -1,0 +1,160 @@
+<html>
+<head>
+     <link rel="stylesheet" href="https://rawgit.com/angular/bower-material/v1.0.7/angular-material.css">
+    
+</head>
+<body>
+<div ng-app="myApp" layout="column" layout-fill ng-cloak >
+
+<div ng-controller="AppController" flex-gt-md="160" layout="row" layout-align="center center">
+<div flex>
+ <md-menu-bar>
+          <md-menu>
+            <button class="md-button md-fab md-default" style="width:500%;height: 20%;" ng-click="$mdOpenMenu()">
+              <img src="img/custom/eye.svg">
+            </button>
+			
+            <md-menu-content>           
+              <md-menu-item ng-repeat="entity in entities">
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu();test(entity)">{{entity.name}}</md-button>
+				  
+				  
+                  <md-menu-content ng-show=true>
+                    <md-menu-item>
+						<md-menu>
+						  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+						  <md-menu-content>
+							<md-menu-item><md-button>Document</md-button></md-menu-item>
+							<md-menu-item><md-button>File</md-button></md-menu-item>
+						  </md-menu-content>
+						</md-menu>
+					</md-menu-item>
+                    <md-menu-item><md-button>File</md-button></md-menu-item>
+                  </md-menu-content>
+				  
+				  
+                </md-menu>
+              </md-menu-item>         
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+		</div>
+		<div flex>
+		<md-menu-bar>
+          <md-menu>
+            <button class="md-button md-raised md-default" ng-click="$mdOpenMenu()">
+              Create
+            </button>
+            <md-menu-content>           
+              <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+                  <md-menu-content>
+                    <md-menu-item>
+						<md-menu>
+						  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+						  <md-menu-content>
+							<md-menu-item><md-button>Document</md-button></md-menu-item>
+							<md-menu-item><md-button>File</md-button></md-menu-item>
+						  </md-menu-content>
+						</md-menu>
+					</md-menu-item>
+                    <md-menu-item><md-button>File</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>         
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+		</div>
+		<div flex>
+		<md-menu-bar>
+          <md-menu>
+            <button class="md-button md-raised md-default" ng-click="$mdOpenMenu()">
+              Update
+            </button>
+            <md-menu-content>           
+              <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+                  <md-menu-content>
+                    <md-menu-item>
+						<md-menu>
+						  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+						  <md-menu-content>
+							<md-menu-item><md-button>Document</md-button></md-menu-item>
+							<md-menu-item><md-button>File</md-button></md-menu-item>
+						  </md-menu-content>
+						</md-menu>
+					</md-menu-item>
+                    <md-menu-item><md-button>File</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>         
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+		</div>
+		<div>
+		<md-menu-bar>
+          <md-menu>
+            <button class="md-button md-raised md-default" ng-click="$mdOpenMenu()">
+              Delete
+            </button>
+            <md-menu-content>           
+              <md-menu-item>
+                <md-menu>
+                  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+                  <md-menu-content>
+                    <md-menu-item>
+						<md-menu>
+						  <md-button ng-click="$mdOpenMenu()">Link2</md-button>
+						  <md-menu-content>
+							<md-menu-item><md-button>Document</md-button></md-menu-item>
+							<md-menu-item><md-button>File</md-button></md-menu-item>
+						  </md-menu-content>
+						</md-menu>
+					</md-menu-item>
+                    <md-menu-item><md-button>File</md-button></md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-menu-item>         
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+		</div>
+		</div>
+</div>
+</body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-animate.js"></script>
+     <script src="https://rawgit.com/angular/bower-material/v1.0.7/angular-material.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-aria.js"></script>
+
+<script>
+var app=angular.module('myApp', ['ngMaterial']);
+var mainfunction= function($scope){
+$scope.entities =[
+                { name: "Applications" },
+                { name: "Layouts" },
+				{ name: "Procedures" },
+				{ name: "Proc-Seq" },
+				{ name: "Segments" },
+				{ name: "Fields" },
+				{ name: "Files" },
+				{ name: "Formats" },
+				{ name: "Functions" },
+				{ name: "Modules" },
+				{ name: "Param-exp" },
+				{ name: "Parameters" }
+				
+								
+            ];
+$scope.test = function(value){
+alert(value.name);
+}
+}
+app.controller('AppController',mainfunction)
+</script>
+</html>
